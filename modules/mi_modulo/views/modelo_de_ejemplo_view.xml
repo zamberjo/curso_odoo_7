@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <menuitem id="mi_modulo_root"
+            name="Mi módulo root"
+            sequence="1"/>
+        <menuitem id="mi_modulo_folder"
+            name="Mi módulo folder"
+            parent="mi_modulo_root"
+            sequence="1"/>
+    </data>
+</openerp>

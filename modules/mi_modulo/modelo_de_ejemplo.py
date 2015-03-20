@@ -29,7 +29,7 @@ class modelo_de_ejemplo(orm.Model):
         'name': fields.char(string="Nombre", size=5),
 
         # Indicamos otro campo de texto.
-        'otro_name': fields.char(string="Nombre", size=5),
+        'otro_name': fields.char(string="Otro Nombre", size=5),
     }
 
     def create(self, cr, uid, vals, context=None):
@@ -74,3 +74,19 @@ class modelo_de_ejemplo(orm.Model):
     }
 
 modelo_de_ejemplo()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

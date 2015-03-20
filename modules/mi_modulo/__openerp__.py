@@ -24,7 +24,9 @@ Esto es un subtitulo
     # Para este módulo de ejemplo no vamos a heredar por lo que no vamos a
     # depender de nada.
     'depends': [],
-    'data': [],
+    'data': [
+        'views/modelo_de_ejemplo_view.xml',
+    ],
     'installable': True,
     'active': True,
     'js': [],

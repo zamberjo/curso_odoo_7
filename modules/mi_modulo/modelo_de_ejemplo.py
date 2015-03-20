@@ -33,6 +33,12 @@ class modelo_de_ejemplo(orm.Model):
             string="Otro Nombre", size=5,
             help="Este campo es para ...\n"\
                  "Esta es otra línea"),
+
+        'active': fields.boolean("Activo"),
+
+        'valor_a': fields.integer('Valor A', required=True),
+        'valor_b': fields.integer('Valor B', required=True),
+        'valor_c': fields.integer('Valor C', readonly=True),
     }
 
     def create(self, cr, uid, vals, context=None):
@@ -74,6 +80,7 @@ class modelo_de_ejemplo(orm.Model):
         # 'name': 'AAAAA'
         # 'name': lambda *a: 'AAAAA',
         'name': _get_default_name,
+        'active': lambda *a: True,
     }
 
 modelo_de_ejemplo()

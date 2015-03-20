@@ -18,7 +18,7 @@ class modelo_de_ejemplo(orm.Model):
     # Por defecto OpenERP muestra el campo name en los campos relacionales, en
     # caso de que queramos que OpenERP muestre otro campo se lo indicaríamos
     # con el atributo _rec_name
-    _rec_name = "otro_name"
+    # _rec_name = "otro_name"
 
     # Definimos las columnas (propiedades) de nuestro objeto (modelo).
     _columns = {
@@ -26,10 +26,13 @@ class modelo_de_ejemplo(orm.Model):
         # máximo 5 carácteres, y al cuál especificamos a OpenERP que tiene que
         # mostrar como label el string "Nombre", por lo que en la interfaz
         # veremos un label "Nombre" seguido de un input text.
-        'name': fields.char(string="Nombre", size=5),
+        'name': fields.char(string="Nombre", size=5, change_default=True),
 
         # Indicamos otro campo de texto.
-        'otro_name': fields.char(string="Otro Nombre", size=5),
+        'otro_name': fields.char(
+            string="Otro Nombre", size=5,
+            help="Este campo es para ...\n"\
+                 "Esta es otra línea"),
     }
 
     def create(self, cr, uid, vals, context=None):
@@ -49,7 +52,7 @@ class modelo_de_ejemplo(orm.Model):
             valores como el idioma del usuario, y la hora de este.
         """
         # Definimos un breakpoint
-        pdb.set_trace()
+        # pdb.set_trace()
 
         # Realizamos acciones antes de crear el registro.
 

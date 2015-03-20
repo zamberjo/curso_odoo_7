@@ -30,15 +30,26 @@ class modelo_de_ejemplo(orm.Model):
 
         # Indicamos otro campo de texto.
         'otro_name': fields.char(
-            string="Otro Nombre", size=5,
+            string="Otro Nombre",
             help="Este campo es para ...\n"\
-                 "Esta es otra línea"),
+                 "Esta es otra línea",
+            translate=True),
 
+        # Boolean
         'active': fields.boolean("Activo"),
 
+        # Integer
         'valor_a': fields.integer('Valor A', required=True),
         'valor_b': fields.integer('Valor B', required=True),
         'valor_c': fields.integer('Valor C', readonly=True),
+
+        # Float
+        'float_a': fields.float('Float A', digits=(3,2)),
+        'float_b': fields.float('Float B', digits=(1,5)),
+
+        # Text && HTML
+        'notes': fields.text('Notas del usuario', required=True),
+        'notes_ui': fields.html("Notas para el cliente", required=True),
     }
 
     def create(self, cr, uid, vals, context=None):

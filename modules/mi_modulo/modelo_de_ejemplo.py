@@ -7,6 +7,8 @@ from osv import orm, fields
 # Utilizaremos el paquete python PDB para debuggear.
 import pdb
 # Tratando fechas
+import datetime
+# from datetime import datetime
 from tools import DEFAULT_SERVER_DATE_FORMAT as DEF_DATE
 from tools import DEFAULT_SERVER_DATETIME_FORMAT as DEF_DATETIME
 # Loggers
@@ -121,6 +123,11 @@ class modelo_de_ejemplo(orm.Model):
     def _get_default_name(self, cr, uid, context=None, *args):
         return 'AAAAA'
 
+    def _get_default_date_end(self, cr, uid, context=None, *args):
+        today = datetime.datetime.now().date()
+        end_date = today + datetime.timedelta(days=5)
+        return end_date.strftime(DEF_DATE)
+
     # Definimos los valores por defecto de los fields anteriormente declarados.
     _defaults = {
         # Podemos definir el valor directamente, on invocando un método.
@@ -128,6 +135,8 @@ class modelo_de_ejemplo(orm.Model):
         # 'name': lambda *a: 'AAAAA',
         'name': _get_default_name,
         'active': lambda *a: True,
+        'date_start': fields.date.today(),
+        'date_end': _get_default_date_end,
     }
 
     def check_datetime(self, datetime_start, datetime_end, context=None):

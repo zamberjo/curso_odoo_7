@@ -51,7 +51,10 @@ class modelo_de_ejemplo(orm.Model):
         # Integer
         'valor_a': fields.integer('Valor A', required=True),
         'valor_b': fields.integer('Valor B', required=True),
-        'valor_c': fields.integer('Valor C', readonly=True),
+        'valor_c': fields.integer('Valor C', readonly=True, states={
+            'draft': [('readonly', False)],
+            'selled': [('invisible', True)],
+        }),
 
         # Float
         'float_a': fields.float('Float A', digits=(3,2)),
@@ -63,10 +66,23 @@ class modelo_de_ejemplo(orm.Model):
 
         # Fechas
         'date_start': fields.date('Fecha inicio'),
-        'date_end': fields.date('Fecha fin'),
+        'date_end': fields.date('Fecha fin', readonly=True),
 
+        # Fechas y horas
         'datetime_start': fields.datetime('Fecha y hora inicio'),
         'datetime_end': fields.datetime('Fecha y hora fin'),
+
+        # Fichero, imagen, doc...
+        'file': fields.binary('Upload a file'),
+        'image': fields.binary('Upload your image', filters="*.png,*.jpg"),
+
+        # Selection - Incluímos el special field "state"
+        'state': fields.selection([
+                ('draft', 'Borrador'),
+                ('confirmed', 'Confirmado'),
+                ('selled', 'Vendido'),
+                ('cancelled', 'Cancelado'),
+            ], string="States")
     }
 
     def create(self, cr, uid, vals, context=None):
@@ -134,6 +150,7 @@ class modelo_de_ejemplo(orm.Model):
         # 'name': 'AAAAA'
         # 'name': lambda *a: 'AAAAA',
         'name': _get_default_name,
+        'state': 'draft',
         'active': lambda *a: True,
         'date_start': fields.date.today(),
         'date_end': _get_default_date_end,

@@ -37,6 +37,11 @@ class modelo_de_ejemplo(orm.Model):
         # mostrar como label el string "Nombre", por lo que en la interfaz
         # veremos un label "Nombre" seguido de un input text.
         'name': fields.char(string="Name", size=5, change_default=True),
+        'create_date': fields.date('Creation date', readonly=True),
+        'create_uid':  fields.many2one('res.users', 'Create User', readonly=True),
+        'write_date': fields.datetime('Date Modified', readonly=True),
+        'write_uid':  fields.many2one('res.users', 'Last Modification User', readonly=True),
+
 
         # Indicamos otro campo de texto.
         'otro_name': fields.char(
@@ -50,7 +55,8 @@ class modelo_de_ejemplo(orm.Model):
 
         # Integer
         'valor_a': fields.integer('Valor A', required=True),
-        'valor_b': fields.integer('Valor B', required=True),
+        'valor_b': fields.integer('Valor B', required=True,
+            deprecated="Utiliza el valor_a"),
         'valor_c': fields.integer('Valor C', readonly=True, states={
             'draft': [('readonly', False)],
             'selled': [('invisible', True)],

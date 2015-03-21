@@ -1,9 +1,17 @@
 # -*- coding: utf-8 -*-
 
+# OpenERP
+import openerp
 # Necesario para poder definir nuestro modelo.
 from osv import orm, fields
 # Utilizaremos el paquete python PDB para debuggear.
 import pdb
+# Tratando fechas
+from tools import DEFAULT_SERVER_DATE_FORMAT as DEF_DATE
+from tools import DEFAULT_SERVER_DATETIME_FORMAT as DEF_DATETIME
+# Loggers
+import logging
+_logger = logging.getLogger(__name__)
 
 
 class modelo_de_ejemplo(orm.Model):
@@ -26,7 +34,7 @@ class modelo_de_ejemplo(orm.Model):
         # máximo 5 carácteres, y al cuál especificamos a OpenERP que tiene que
         # mostrar como label el string "Nombre", por lo que en la interfaz
         # veremos un label "Nombre" seguido de un input text.
-        'name': fields.char(string="Nombre", size=5, change_default=True),
+        'name': fields.char(string="Name", size=5, change_default=True),
 
         # Indicamos otro campo de texto.
         'otro_name': fields.char(
@@ -50,6 +58,13 @@ class modelo_de_ejemplo(orm.Model):
         # Text && HTML
         'notes': fields.text('Notas del usuario', required=True),
         'notes_ui': fields.html("Notas para el cliente", required=True),
+
+        # Fechas
+        'date_start': fields.date('Fecha inicio'),
+        'date_end': fields.date('Fecha fin'),
+
+        'datetime_start': fields.datetime('Fecha y hora inicio'),
+        'datetime_end': fields.datetime('Fecha y hora fin'),
     }
 
     def create(self, cr, uid, vals, context=None):
@@ -69,9 +84,12 @@ class modelo_de_ejemplo(orm.Model):
             valores como el idioma del usuario, y la hora de este.
         """
         # Definimos un breakpoint
-        # pdb.set_trace()
+        pdb.set_trace()
 
-        # Realizamos acciones antes de crear el registro.
+        if vals['datetime_start'] and vals['datetime_end']:
+            self.check_datetime(vals['datetime_start'], vals['datetime_end'])
+
+
 
         # El método create devuelve el id del registro recien creado.
         record_id = super(modelo_de_ejemplo, self).create(
@@ -81,6 +99,24 @@ class modelo_de_ejemplo(orm.Model):
 
         # Devolvemos el id del registro.
         return record_id
+
+    def write(self, cr, uid, ids, vals, context=None):
+        """
+            TODO::
+        """
+        _logger.info("ids = %r" % (ids))
+        _logger.error("vals = %r" % (vals))
+        _logger.warning("context = %r" % (context))
+
+        if 'datetime_start' in vals and 'datetime_end' in vals:
+            if vals['datetime_start'] and vals['datetime_end']:
+                self.check_datetime(
+                    vals['datetime_start'],
+                    vals['datetime_end']
+                )
+        return super(modelo_de_ejemplo, self).write(
+            cr, uid, ids, vals, context=context)
+
 
     def _get_default_name(self, cr, uid, context=None, *args):
         return 'AAAAA'
@@ -93,6 +129,18 @@ class modelo_de_ejemplo(orm.Model):
         'name': _get_default_name,
         'active': lambda *a: True,
     }
+
+    def check_datetime(self, datetime_start, datetime_end, context=None):
+        """
+        Comprobamos la lógica de fechas...
+        """
+        # 1ro comprobamos que el field datetime_start venga inicializado.
+        if datetime_start > datetime_end:
+            raise openerp.exceptions.AccessError(
+                "Las fechas de 'inicio' no pueden ser posteriores " \
+                "a las fechas 'fin'"
+            )
+        return True
 
 modelo_de_ejemplo()
 

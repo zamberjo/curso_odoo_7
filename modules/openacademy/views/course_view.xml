@@ -18,7 +18,10 @@
                         </group>
                         <field name="description"/>
                     </group>
-                    <field name="session_ids"/>
+                    <field name="session_ids"
+                        context="{
+                            'default_course_id': context.get('active_id')
+                        }"/>
                 </form>
             </field>
         </record>

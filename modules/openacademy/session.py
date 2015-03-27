@@ -24,9 +24,11 @@ class openacademy_session(orm.Model):
             ], string='State', required=True, readonly=True),
         'course_id': fields.many2one(
             'openacademy.course', string="Course", required=True),
-        'intructor_id': fields.many2one(
+        'instructor_id': fields.many2one(
             'res.partner', string="Instructor",
             domain="[('is_company', '=', False)]"),
+        'attendee_ids': fields.one2many(
+            'openacademy.attendee', 'session_id', string="Attendees")
     }
 
     _defaults = {

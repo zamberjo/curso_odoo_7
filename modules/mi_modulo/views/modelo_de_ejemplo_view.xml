@@ -16,19 +16,20 @@
         </record>
 
         <!-- menuitems -->
-        <menuitem id="mi_modulo_root"
-            name="Mi módulo root"
-            sequence="1"/>
 
-        <menuitem id="mi_modulo_folder"
-            name="Mi módulo folder"
-            parent="mi_modulo_root"
-            sequence="1"/>
+            <menuitem id="mi_modulo_root"
+                name="Mi módulo root"
+                sequence="1"/>
 
-        <menuitem id="mi_modelo_menu"
-            name="Mi modelo 1"
-            action="mi_modelo_act"
-            parent="mi_modulo_folder"
-            sequence="1"/>
+            <menuitem id="mi_modulo_folder"
+                name="Mi módulo folder"
+                parent="mi_modulo_root"
+                sequence="1"/>
+
+            <menuitem id="mi_modelo_menu"
+                name="Mi modelo 1"
+                action="mi_modelo_act"
+                parent="mi_modulo_folder"
+                sequence="1"/>
     </data>
 </openerp>

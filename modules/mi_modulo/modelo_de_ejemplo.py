@@ -38,15 +38,17 @@ class modelo_de_ejemplo(orm.Model):
         # veremos un label "Nombre" seguido de un input text.
         'name': fields.char(string="Name", size=5, change_default=True),
         'create_date': fields.date('Creation date', readonly=True),
-        'create_uid':  fields.many2one('res.users', 'Create User', readonly=True),
-        'write_date': fields.datetime('Date Modified', readonly=True),
-        'write_uid':  fields.many2one('res.users', 'Last Modification User', readonly=True),
-
+        'create_uid':  fields.many2one(
+            'res.users', 'Create User', readonly=True),
+        'write_date': fields.datetime(
+            'Date Modified', readonly=True),
+        'write_uid':  fields.many2one(
+            'res.users', 'Last Modification User', readonly=True),
 
         # Indicamos otro campo de texto.
         'otro_name': fields.char(
             string="Otro Nombre",
-            help="Este campo es para ...\n"\
+            help="Este campo es para ...\n"
                  "Esta es otra línea",
             translate=True),
 
@@ -55,16 +57,18 @@ class modelo_de_ejemplo(orm.Model):
 
         # Integer
         'valor_a': fields.integer('Valor A', required=True),
-        'valor_b': fields.integer('Valor B', required=True,
-            deprecated="Utiliza el valor_a"),
-        'valor_c': fields.integer('Valor C', readonly=True, states={
-            'draft': [('readonly', False)],
-            'selled': [('invisible', True)],
-        }),
+        'valor_b': fields.integer(
+            'Valor B', required=True, deprecated="Utiliza el valor_a"),
+        'valor_c': fields.integer(
+            'Valor C', readonly=True, states={
+                'draft': [('readonly', False)],
+                'selled': [('invisible', True)],
+            }
+        ),
 
         # Float
-        'float_a': fields.float('Float A', digits=(3,2)),
-        'float_b': fields.float('Float B', digits=(1,5)),
+        'float_a': fields.float('Float A', digits=(3, 2)),
+        'float_b': fields.float('Float B', digits=(1, 5)),
 
         # Text && HTML
         'notes': fields.text('Notas del usuario', required=True),
@@ -83,7 +87,8 @@ class modelo_de_ejemplo(orm.Model):
         'image': fields.binary('Upload your image', filters="*.png,*.jpg"),
 
         # Selection - Incluímos el special field "state"
-        'state': fields.selection([
+        'state': fields.selection(
+            [
                 ('draft', 'Borrador'),
                 ('confirmed', 'Confirmado'),
                 ('selled', 'Vendido'),
@@ -108,12 +113,10 @@ class modelo_de_ejemplo(orm.Model):
             valores como el idioma del usuario, y la hora de este.
         """
         # Definimos un breakpoint
-        pdb.set_trace()
+        # pdb.set_trace()
 
         if vals['datetime_start'] and vals['datetime_end']:
             self.check_datetime(vals['datetime_start'], vals['datetime_end'])
-
-
 
         # El método create devuelve el id del registro recien creado.
         record_id = super(modelo_de_ejemplo, self).create(
@@ -141,7 +144,6 @@ class modelo_de_ejemplo(orm.Model):
         return super(modelo_de_ejemplo, self).write(
             cr, uid, ids, vals, context=context)
 
-
     def _get_default_name(self, cr, uid, context=None, *args):
         return 'AAAAA'
 
@@ -164,30 +166,14 @@ class modelo_de_ejemplo(orm.Model):
 
     def check_datetime(self, datetime_start, datetime_end, context=None):
         """
-        Comprobamos la lógica de fechas...
+            Comprobamos la lógica de fechas...
         """
         # 1ro comprobamos que el field datetime_start venga inicializado.
         if datetime_start > datetime_end:
             raise openerp.exceptions.AccessError(
-                "Las fechas de 'inicio' no pueden ser posteriores " \
+                "Las fechas de 'inicio' no pueden ser posteriores "
                 "a las fechas 'fin'"
             )
         return True
 
 modelo_de_ejemplo()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

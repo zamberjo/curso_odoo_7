@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Root -->
+        <menuitem id="openacademy_menu_root" name="Open Academy"/>
+
+            <!-- Folders -->
+            <menuitem id="openacademy_menu_folder" name="Open Academy"
+                parent="openacademy_menu_root"/>
+
+            <menuitem id="openacademy_menu_personal" name="Personal"
+                parent="openacademy_menu_root"/>
+
+    </data>
+</openerp>

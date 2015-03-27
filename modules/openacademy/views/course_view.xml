@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Actions -->
+        <record id="action_courses" model="ir.actions.act_window">
+            <field name="name">Courses</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">openacademy.course</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to define a new course.
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_courses" parent="openacademy.openacademy_menu_folder"
+                name="Courses" sequence="1" action="action_courses"/>
+    </data>
+</openerp>

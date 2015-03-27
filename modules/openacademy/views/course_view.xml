@@ -2,6 +2,40 @@
 <openerp>
     <data>
 
+        <!-- views -->
+        <record id="view_openacademy_course_form" model="ir.ui.view">
+            <field name="name">view.openacademy.course.form</field>
+            <field name="model">openacademy.course</field>
+            <field name="arch" type="xml">
+                <form string="Course" version="7.0">
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="image"/>
+                        </group>
+                        <group>
+                            <field name="responsible_id"/>
+                        </group>
+                        <field name="description"/>
+                    </group>
+                    <field name="session_ids"/>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="view_openacademy_course_tree" model="ir.ui.view">
+            <field name="name">view.openacademy.course.tree</field>
+            <field name="model">openacademy.course</field>
+            <field name="arch" type="xml">
+                <tree string="Courses" version="7.0">
+                    <field name="name"/>
+                    <field name="responsible_id"/>
+                </tree>
+            </field>
+        </record>
+
+
         <!-- Actions -->
         <record id="action_courses" model="ir.actions.act_window">
             <field name="name">Courses</field>
@@ -9,6 +43,7 @@
             <field name="res_model">openacademy.course</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_openacademy_course_tree"/>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">
                     Click to define a new course.

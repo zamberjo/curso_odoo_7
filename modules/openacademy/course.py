@@ -20,6 +20,8 @@ class openacademy_course(orm.Model):
         'active': fields.boolean('Active'),
         'responsible_id': fields.many2one(
             'res.users', string="Responsible", required=True),
+        'session_ids': fields.one2many(
+            'openacademy.session', 'course_id', string="Sessions"),
     }
 
     def _check_description(self, cr, uid, ids, context=None):

@@ -21,7 +21,6 @@ class openacademy_session(orm.Model):
                 ('confirmed', 'Confirmed'),
                 ('done', 'Done')
             ], string='State', required=True, readonly=True),
-        'date_end': fields.function(_get_end_date, type='date', string="End date"),
     }
 
     _defaults = {

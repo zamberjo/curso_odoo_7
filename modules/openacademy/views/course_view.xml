@@ -11,7 +11,7 @@
                     <group>
                         <group>
                             <field name="name"/>
-                            <field name="image"/>
+                            <field name="image_medium" widget="image"/>
                         </group>
                         <group>
                             <field name="responsible_id"/>

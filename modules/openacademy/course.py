@@ -28,10 +28,13 @@ class openacademy_course(orm.Model):
             string="Responsible Email", store=True),
         'session_ids': fields.one2many(
             'openacademy.session', 'course_id', string="Sessions"),
+        # 'attendee_ids': fields.many2many(
+        #     'openacademy.attendee', 'course_attendee_rel', 'course_id',
+        #     'attendee_id', string='Attendees'),
     }
 
     def _check_description(self, cr, uid, ids, context=None):
-        # pdb.set_trace()
+        pdb.set_trace()
         for course in self.browse(cr, uid, ids, context):
             if course.name == course.description:
                 return False

@@ -24,6 +24,7 @@
                         context="{
                             'default_course_id': context.get('active_id')
                         }"/>
+                    <field name="attendee_ids" string="Attendees"/>
                 </form>
             </field>
         </record>

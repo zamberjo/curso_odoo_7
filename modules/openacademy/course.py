@@ -34,7 +34,7 @@ class openacademy_course(orm.Model):
     }
 
     def _check_description(self, cr, uid, ids, context=None):
-        pdb.set_trace()
+        # pdb.set_trace()
         for course in self.browse(cr, uid, ids, context):
             if course.name == course.description:
                 return False

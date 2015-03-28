@@ -11,13 +11,14 @@
                     <group>
                         <group>
                             <field name="name"/>
-                            <field name="date_start"/>
+                            <field name="instructor_id"/>
                             <field name="seats"/>
                             <field name="course_id"/>
                         </group>
                         <group>
-                            <field name="instructor_id"/>
+                            <field name="date_start"/>
                             <field name="duration"/>
+                            <field name="date_end"/>
                         </group>
                     </group>
                     <field name="attendee_ids"
@@ -35,8 +36,9 @@
             <field name="arch" type="xml">
                 <tree string="Sessions" version="7.0">
                     <field name="date_start"/>
-                    <field name="name"/>
                     <field name="duration"/>
+                    <field name="date_end"/>
+                    <field name="name"/>
                     <field name="seats"/>
                     <field name="state"/>
                     <field name="instructor_id"/>

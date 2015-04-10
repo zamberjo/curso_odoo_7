@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="iopentunes_format_vinyl" model="iopentunes.album_format">
+            <field name="name">Vinyl</field>
+        </record>
+
+        <record id="iopentunes_format_cd" model="iopentunes.album_format">
+            <field name="name">CD</field>
+        </record>
+
+        <record id="iopentunes_format_mp3" model="iopentunes.album_format">
+            <field name="name">MP3</field>
+        </record>
+
+        <record id="iopentunes_format_cassette" model="iopentunes.album_format">
+            <field name="name">Cassette</field>
+        </record>
+    </data>
+</openerp>

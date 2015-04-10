@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <!-- views -->
+        <record id="view_iopentunes_songs_form" model="ir.ui.view">
+            <field name="name">view.iopentunes.songs.form</field>
+            <field name="model">iopentunes.song</field>
+            <field name="arch" type="xml">
+                <form string="Songs" version="7.0">
+                    <sheet>
+                        <field name="image_medium" widget="image" class="oe_avatar oe_left"/>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name"/>
+                                <field name="active" invisible="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="album_id"/>
+                                <field name="duration"/>
+                            </group>
+                            <group>
+                                <field name="downloads"/>
+                                <field name="genre_id"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="author_ids"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="view_iopentunes_songs_tree" model="ir.ui.view">
+            <field name="name">view.iopentunes.songs.tree</field>
+            <field name="model">iopentunes.song</field>
+            <field name="arch" type="xml">
+                <tree string="Songs" version="7.0">
+                    <field name="downloads"/>
+                    <field name="name"/>
+                    <field name="author_ids" widget="many2many_tags"/>
+                    <field name="album_id"/>
+                    <field name="duration"/>
+                    <field name="genre_id"/>
+                    <field name="price"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="iopentunes_songs_action" model="ir.actions.act_window">
+            <field name="name">Songs</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">iopentunes.song</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'group_by': 'album_id'}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to define a new song.
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="iopentunes_songs_menu"
+            parent="iopentunes.iopentunes_media_menu_folder"
+            name="Songs"
+            sequence="2"
+            action="iopentunes_songs_action"/>
+    </data>
+</openerp>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="iopentunes_genre_folk" model="iopentunes.genre">
+            <field name="name">Folk</field>
+        </record>
+
+            <record id="iopentunes_genre_asian" model="iopentunes.genre">
+                <field name="name">Asian</field>
+                <field name="parent_id" ref="iopentunes_genre_folk"/>
+            </record>
+
+                <record id="iopentunes_genre_hindustani" model="iopentunes.genre">
+                    <field name="name">Hindustani</field>
+                    <field name="parent_id" ref="iopentunes_genre_asian"/>
+                </record>
+
+            <record id="iopentunes_genre_latin" model="iopentunes.genre">
+                <field name="name">Latin</field>
+                <field name="parent_id" ref="iopentunes_genre_folk"/>
+            </record>
+
+                <record id="iopentunes_genre_afro_cuban" model="iopentunes.genre">
+                    <field name="name">Afro Cuban</field>
+                    <field name="parent_id" ref="iopentunes_genre_latin"/>
+                </record>
+
+                <record id="iopentunes_genre_mambo" model="iopentunes.genre">
+                    <field name="name">Mambo</field>
+                    <field name="parent_id" ref="iopentunes_genre_latin"/>
+                </record>
+
+                <record id="iopentunes_genre_mariachi_band" model="iopentunes.genre">
+                    <field name="name">Mariachi Band</field>
+                    <field name="parent_id" ref="iopentunes_genre_latin"/>
+                </record>
+
+            <record id="iopentunes_genre_african" model="iopentunes.genre">
+                <field name="name">African</field>
+                <field name="parent_id" ref="iopentunes_genre_folk"/>
+            </record>
+
+                <record id="iopentunes_genre_work_song" model="iopentunes.genre">
+                    <field name="name">Work Song</field>
+                    <field name="parent_id" ref="iopentunes_genre_african"/>
+                </record>
+
+            <record id="iopentunes_genre_celtic" model="iopentunes.genre">
+                <field name="name">Celtic</field>
+                <field name="parent_id" ref="iopentunes_genre_folk"/>
+            </record>
+
+                <record id="iopentunes_genre_military_band" model="iopentunes.genre">
+                    <field name="name">Military Band</field>
+                    <field name="parent_id" ref="iopentunes_genre_celtic"/>
+                </record>
+
+                <record id="iopentunes_genre_irish" model="iopentunes.genre">
+                    <field name="name">Irish</field>
+                    <field name="parent_id" ref="iopentunes_genre_celtic"/>
+                </record>
+
+            <record id="iopentunes_genre_western_art" model="iopentunes.genre">
+                <field name="name">Western Art</field>
+                <field name="parent_id" ref="iopentunes_genre_folk"/>
+            </record>
+
+                <record id="iopentunes_genre_religious" model="iopentunes.genre">
+                    <field name="name">Religious</field>
+                    <field name="parent_id" ref="iopentunes_genre_western_art"/>
+                </record>
+
+                <record id="iopentunes_genre_secular" model="iopentunes.genre">
+                    <field name="name">Secular</field>
+                    <field name="parent_id" ref="iopentunes_genre_western_art"/>
+                </record>
+    </data>
+</openerp>

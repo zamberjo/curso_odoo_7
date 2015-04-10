@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <menuitem id="iopentunes_menu_root" name="iOpenTunes"/>
+
+            <menuitem id="iopentunes_menu_folder" name="iOpenTunes"
+                parent="iopentunes_menu_root" sequence="1"/>
+
+            <menuitem id="iopentunes_media_menu_folder" name="Media"
+                parent="iopentunes_menu_root" sequence="2"/>
+
+            <menuitem id="iopentunes_config_menu_folder" name="Configuration"
+                parent="iopentunes_menu_root" sequence="100"/>
+
+
+    </data>
+</openerp>

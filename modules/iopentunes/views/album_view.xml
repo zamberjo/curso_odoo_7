@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <!-- views -->
+        <record id="view_iopentunes_albums_form" model="ir.ui.view">
+            <field name="name">view.iopentunes.albums.form</field>
+            <field name="model">iopentunes.album</field>
+            <field name="arch" type="xml">
+                <form string="Albums" version="7.0">
+                    <sheet>
+                        <field name="image_medium" widget="image" class="oe_avatar oe_left"/>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name"/>
+                                <field name="active" invisible="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="date_published"/>
+                                <field name="downloads"/>
+                            </group>
+                            <group>
+                                <field name="price"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="format_ids"/>
+                            <field name="author_ids"/>
+                            <field name="song_ids" context="{'default_author_ids': author_ids}"/>
+                        </group>
+                        <field name="description" placeholder="Description..."/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="view_iopentunes_albums_tree" model="ir.ui.view">
+            <field name="name">view.iopentunes.albums.tree</field>
+            <field name="model">iopentunes.album</field>
+            <field name="arch" type="xml">
+                <tree string="Albums" version="7.0">
+                    <field name="downloads"/>
+                    <field name="name"/>
+                    <field name="date_published"/>
+                    <field name="format_ids" widget="many2many_tags"/>
+                    <field name="author_ids" widget="many2many_tags"/>
+                    <field name="song_ids" widget="one2many_list"/>
+                    <field name="price"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="iopentunes_albums_action" model="ir.actions.act_window">
+            <field name="name">Albums</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">iopentunes.album</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to define a new album.
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="iopentunes_albums_menu"
+            parent="iopentunes.iopentunes_media_menu_folder"
+            name="Albums"
+            sequence="1"
+            action="iopentunes_albums_action"/>
+    </data>
+</openerp>

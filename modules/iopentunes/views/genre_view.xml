@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="view_iopentunes_genres_form" model="ir.ui.view">
+            <field name="name">view.iopentunes.genres.form</field>
+            <field name="model">iopentunes.genre</field>
+            <field name="arch" type="xml">
+                <form string="Genres" version="7.0">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group name="parent" col="4">
+                                <field name="parent_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_iopentunes_genres_tree" model="ir.ui.view">
+            <field name="name">view.iopentunes.genres.tree</field>
+            <field name="model">iopentunes.genre</field>
+            <field name="field_parent">child_ids</field>
+            <field name="arch" type="xml">
+                <!--<tree string="Genres" version="7.0">-->
+                <tree string="Genres" version="7.0" toolbar="1">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="iopentunes_genres_action" model="ir.actions.act_window">
+            <field name="name">Genders</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">iopentunes.genre</field>
+            <field name="view_type">tree</field>
+            <field name="view_mode">tree,form</field>
+            <!--<field name="context">{'group_by': 'parent_id'}</field>-->
+            <field name="view_id" ref="view_iopentunes_genres_tree"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to define a new genre.
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="iopentunes_genres_menu"
+            parent="iopentunes.iopentunes_config_menu_folder"
+            name="Genres"
+            sequence="1"
+            action="iopentunes_genres_action"/>
+    </data>
+</openerp>

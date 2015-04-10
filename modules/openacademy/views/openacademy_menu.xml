@@ -12,5 +12,9 @@
             <menuitem id="openacademy_menu_personal" name="Personal"
                 parent="openacademy_menu_root"/>
 
+            <menuitem id="openacademy_menu_subscription"
+                name="Subscriptions"
+                parent="openacademy_menu_root"/>
+
     </data>
 </openerp>

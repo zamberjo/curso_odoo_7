@@ -30,7 +30,7 @@
             <field name="target">new</field>
         </record>
 
-        <menuitem id="menu_subscription" parent="openacademy.openacademy_menu_root"
+        <menuitem id="menu_subscription" parent="openacademy.openacademy_menu_subscription"
                 name="Subscriptions" sequence="3" action="action_subscriptions"/>
     </data>
 </openerp>

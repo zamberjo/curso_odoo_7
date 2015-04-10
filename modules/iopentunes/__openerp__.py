@@ -23,6 +23,9 @@
     'demo': [
         'demos/iopentunes_demo.xml',
     ],
+    'css': [
+        'static/src/css/iopentunes.css',
+    ],
     'installable': True,
     'auto_install': True,
     'application': True,

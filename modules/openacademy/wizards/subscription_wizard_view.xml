@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_subscriptions_form" model="ir.ui.view">
+            <field name="name">view.subscriptions.form</field>
+            <field name="model">openacademy.subscription_wizard</field>
+            <field name="arch" type="xml">
+                <form string="Subscribe Attendees" version="7.0">
+                    <field name="session_ids" colspan="4"/>
+                    <field name="attendee_ids" colspan="4">
+                        <tree editable="top">
+                            <field name="partner_id"/>
+                        </tree>
+                    </field>
+                    <button
+                        name="subscribe" string="Subscribe"
+                        icon="gtk-ok" type="object"/> or
+                    <button string="Cancel" icon="gtk-cancel"
+                        special="cancel"/>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_subscriptions" model="ir.actions.act_window">
+            <field name="name">Subscribe Attendees</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">openacademy.subscription_wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="menu_subscription" parent="openacademy.openacademy_menu_root"
+                name="Subscriptions" sequence="3" action="action_subscriptions"/>
+    </data>
+</openerp>

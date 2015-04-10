@@ -12,11 +12,13 @@
                             <field name="partner_id"/>
                         </tree>
                     </field>
-                    <button
-                        name="subscribe" string="Subscribe"
-                        icon="gtk-ok" type="object"/> or
-                    <button string="Cancel" icon="gtk-cancel"
-                        special="cancel"/>
+                    <footer>
+                        <button
+                            name="subscribe" string="Subscribe"
+                            icon="gtk-ok" type="object"/> or
+                        <button string="Cancel" icon="gtk-cancel"
+                            special="cancel"/>
+                    </footer>
                 </form>
             </field>
         </record>

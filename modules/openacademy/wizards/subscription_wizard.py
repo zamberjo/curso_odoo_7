@@ -8,6 +8,8 @@ class openacademy_subscription_wizard(orm.TransientModel):
     _name = 'openacademy.subscription_wizard'
 
     _columns = {
+        'course_id': fields.many2one(
+            'openacademy.course', string="Course"),
         'session_ids': fields.many2many(
             'openacademy.session', 'subscription_session_rel',
             'subscription_id', 'session_id', string="Sessions",
@@ -34,6 +36,43 @@ class openacademy_subscription_wizard(orm.TransientModel):
         return session_pool.write(cr, uid, session_ids, {
                 'attendee_ids': attendee_data,
             }, context=context)
+
+    def onchange_course(self, cr, uid, ids, course_id, context=None):
+        """
+            TODO::
+        """
+        course_pool = self.pool.get('openacademy.course')
+
+        value = {}
+        domain = {}
+        warning = {}
+
+        if course_id:
+            course_record = course_pool.browse(
+                cr, uid, course_id, context=context)
+
+            session_ids = []
+
+            for session_record in course_record.session_ids:
+                session_ids += [session_record.id]
+
+            value['session_ids'] = session_ids
+            domain['session_ids'] = [
+                ('id', 'in', session_ids)
+            ]
+        else:
+            value['session_ids'] = []
+            warning = {
+                'title': "Warning!",
+                'message': "Al borrar el curso se han eliminado todas las "
+                           "sesiones contempladas",
+            }
+        return {
+            'value': value,
+            'domain': domain,
+            'warning': warning,
+        }
+
 
 openacademy_subscription_wizard()
 

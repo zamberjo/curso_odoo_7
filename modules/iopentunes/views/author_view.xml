@@ -15,10 +15,14 @@
                                 <field name="active" invisible="1"/>
                             </h1>
                         </div>
-                        <group>
-                            <field name="album_ids"/>
-                            <field name="song_ids"/>
-                        </group>
+                        <notebook>
+                            <page string="Albums">
+                                <field name="album_ids"/>
+                            </page>
+                            <page string="Songs">
+                                <field name="song_ids"/>
+                            </page>
+                        </notebook>
                     </sheet>
                 </form>
             </field>

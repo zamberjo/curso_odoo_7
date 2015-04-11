@@ -119,7 +119,7 @@ class openacademy_session(orm.Model):
             'openacademy.course', string="Course", required=True),
         'instructor_id': fields.many2one(
             'res.partner', string="Instructor",
-            domain="[('is_company', '=', False)]"),
+            domain="[('is_instructor', '=', True)]"),
         'attendee_ids': fields.one2many(
             'openacademy.attendee', 'session_id', string="Attendees")
     }

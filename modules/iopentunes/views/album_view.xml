@@ -26,11 +26,17 @@
                                 <field name="price"/>
                             </group>
                         </group>
-                        <group>
-                            <field name="format_ids"/>
-                            <field name="author_ids"/>
-                            <field name="song_ids" context="{'default_author_ids': author_ids}"/>
-                        </group>
+                        <notebook>
+                            <page string="Formats">
+                                <field name="format_ids"/>
+                            </page>
+                            <page string="Authors">
+                                <field name="author_ids"/>
+                            </page>
+                            <page string="Songs">
+                                <field name="song_ids" context="{'default_author_ids': author_ids}"/>
+                            </page>
+                        </notebook>
                         <field name="description" placeholder="Description..."/>
                     </sheet>
                 </form>

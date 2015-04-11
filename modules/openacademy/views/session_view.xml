@@ -41,7 +41,7 @@
                                         ('state', '!=', 'draft')
                                     ],
                                 }"/>
-                            <field name="instructor_id"/>
+                            <field name="instructor_id" context="{'default_is_instructor': True}"/>
                             <field name="active"/>
                         </group>
                         <group colspan="2" col="2">
@@ -82,7 +82,9 @@
             <field name="name">view.openacademy.session.tree</field>
             <field name="model">openacademy.session</field>
             <field name="arch" type="xml">
-                <tree string="Sessions" version="7.0">
+                <tree string="Sessions" version="7.0"
+                        colors="blue:duration&gt;5;red:duration&lt;5"
+                        fonts="bold:duration==5;">
                     <field name="date_start"/>
                     <field name="duration"/>
                     <field name="date_end"/>

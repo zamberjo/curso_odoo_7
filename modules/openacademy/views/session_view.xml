@@ -8,23 +8,71 @@
             <field name="model">openacademy.session</field>
             <field name="arch" type="xml">
                 <form string="Session" version="7.0">
-                    <group>
-                        <group>
-                            <field name="name"/>
+                    <header>
+                        <button name="action_draft"
+                            string="Reset to Draft"
+                            icon="gtk-cancel"
+                            type="object"
+                            states="confirmed"/>
+                        <button name="action_confirm"
+                            string="Confirm"
+                            icon="gtk-ok"
+                            type="object"
+                            states="draft"/>
+                        <button name="action_done"
+                            string="Set to done"
+                            icon="gtk-ok"
+                            type="object"
+                            states="confirmed"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group colspan="2" col="2">
+                            <separator colspan="2" string="General"/>
+                            <field name="name"
+                                attrs="{
+                                    'readonly': [
+                                        ('state', '!=', 'draft')
+                                    ],
+                                }"/>
+                            <field name="course_id"
+                                attrs="{
+                                    'readonly': [
+                                        ('state', '!=', 'draft')
+                                    ],
+                                }"/>
                             <field name="instructor_id"/>
-                            <field name="seats"/>
-                            <field name="course_id"/>
+                            <field name="active"/>
                         </group>
+                        <group colspan="2" col="2">
+                            <separator colspan="2" string="Schedule"/>
+                            <field name="date_start"
+                                attrs="{
+                                    'readonly': [
+                                        ('state', '!=', 'draft')
+                                    ],
+                                }"/>
+                            <field name="duration"
+                                attrs="{
+                                    'readonly': [
+                                        ('state', '!=', 'draft')
+                                    ],
+                                }"/>
+                            <field name="seats"
+                                on_change="onchange_seats(seats, attendee_ids)"/>
+                            <field name="taken_seats_pct" widget="progressbar"/>
+                        </group>
+                        <separator string="Attendees" colspan="4"/>
                         <group>
-                            <field name="date_start"/>
-                            <field name="duration"/>
-                            <field name="date_end"/>
                         </group>
-                    </group>
-                    <field name="attendee_ids"
-                        context="{
-                            'default_session_id': context.get('active_id')
-                        }"/>
+                        <field name="attendee_ids"
+                            on_change="onchange_seats(seats, attendee_ids)">
+                            <tree string="Attendees" version="7.0"
+                                editable="bottom">
+                                <field name="partner_id"/>
+                            </tree>
+                        </field>
+                    </sheet>
                 </form>
             </field>
         </record>

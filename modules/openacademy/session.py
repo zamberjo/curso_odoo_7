@@ -7,6 +7,8 @@ from osv import orm, fields
 # Fechas
 import datetime
 from tools import DEFAULT_SERVER_DATE_FORMAT as DEF_DATE
+# Traducciones
+from openerp.tools.translate import _
 
 
 class openacademy_session(orm.Model):
@@ -127,5 +129,45 @@ class openacademy_session(orm.Model):
         'state': 'draft',
         'date_start': fields.date.today(),
     }
+
+    def onchange_seats(self, cr, uid, ids, seats, attendee_ids,
+                       context=None):
+        pdb.set_trace()
+        value = {}
+        warning = {}
+
+        count = 0
+        for attendee in attendee_ids:
+            if attendee[0] in (0, 1, 4):
+                count += 1
+
+        if seats < 0:
+            value['seats'] = 0
+            warning = {
+                'title': _('Error!'),
+                'message': _('The number of seats should not be negative!'),
+            }
+
+        else:
+            value['taken_seats_pct'] = seats and 100.0 * count / seats
+        return {
+            'value': value,
+            'warning': warning,
+        }
+
+    def action_draft(self, cr, uid, ids, context=None):
+        return self.write(cr, uid, ids, {
+            'state': 'draft'
+        }, context=context)
+
+    def action_confirm(self, cr, uid, ids, context=None):
+        return self.write(cr, uid, ids, {
+            'state': 'confirmed'
+        }, context=context)
+
+    def action_done(self, cr, uid, ids, context=None):
+        return self.write(cr, uid, ids, {
+            'state': 'done'
+        }, context=context)
 
 openacademy_session()

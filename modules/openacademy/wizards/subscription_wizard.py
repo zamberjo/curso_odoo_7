@@ -12,15 +12,28 @@ class openacademy_subscription_wizard(orm.TransientModel):
             'openacademy.session', 'subscription_session_rel',
             'subscription_id', 'session_id', string="Sessions",
             required=True),
+
         'attendee_ids': fields.one2many(
             'openacademy.attendee_wizard', 'subscription_id',
             string="Attendees"),
     }
 
     def subscribe(self, cr, uid, ids, context=None):
-        import pdb
-        pdb.set_trace()
-        return True
+        session_pool = self.pool.get('openacademy.session')
+        wizard_record = self.browse(cr, uid, ids[0], context=context)
+        session_ids = []
+        for session_record in wizard_record.session_ids:
+            session_ids += [session_record.id]
+
+        attendee_data = []
+        for attendee_record in wizard_record.attendee_ids:
+            attendee_data += [(0, 0, {
+                'partner_id': attendee_record.partner_id.id,
+            })]
+
+        return session_pool.write(cr, uid, session_ids, {
+                'attendee_ids': attendee_data,
+            }, context=context)
 
 openacademy_subscription_wizard()
 

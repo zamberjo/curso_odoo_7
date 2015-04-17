@@ -18,8 +18,8 @@ Módulo Open Academy para gestionar cursos
     """,
     'depends': ['base'],
     'data': [
-        'security/ir.model.access.csv',
         'security/openacademy_security.xml',
+        'security/ir.model.access.csv',
         'views/openacademy_menu.xml',
         'views/course_view.xml',
         'views/session_view.xml',

@@ -44,13 +44,13 @@
         <record id="trans_draft_confirmed1" model="workflow.transition">
             <field name="act_from" ref="draft_activity"/>
             <field name="act_to" ref="confirmed_activity"/>
-            <field name="condition">instructor_id and taken_seats_pct &gt;= 50</field>
+            <field name="condition">instructor_id and taken_seats_pct &gt;= 3</field>
         </record>
         <record id="trans_confirmed_draft0" model="workflow.transition">
             <field name="signal">reset</field>
             <field name="act_from" ref="confirmed_activity"/>
             <field name="act_to" ref="draft_activity"/>
-            <field name="condition">True</field>
+            <field name="condition">check_taken_seats()</field>
         </record>
         <record id="trans_confirmed_done0" model="workflow.transition">
             <field name="signal">done</field>

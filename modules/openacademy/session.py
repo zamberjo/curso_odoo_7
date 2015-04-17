@@ -3,7 +3,7 @@
 # Debugger
 import pdb
 # Necesario para definir los modelos de nuestro módulo OpenERP y sus fields.
-from osv import orm, fields
+from osv import osv, orm, fields
 # Fechas
 import datetime
 from tools import DEFAULT_SERVER_DATE_FORMAT as DEF_DATE
@@ -132,7 +132,6 @@ class openacademy_session(orm.Model):
 
     def onchange_seats(self, cr, uid, ids, seats, attendee_ids,
                        context=None):
-        pdb.set_trace()
         value = {}
         warning = {}
 
@@ -155,7 +154,16 @@ class openacademy_session(orm.Model):
             'warning': warning,
         }
 
+    def check_taken_seats(self, cr, uid, ids, context=None):
+        for current_record in self.browse(cr, uid, ids, context=context):
+            if current_record.taken_seats_pct >= 3:
+                raise osv.except_osv(
+                    _('Error!'),
+                    _("No puede devolver el registro a draft teniendo más de 3 inscritos.")
+                )
+
     def action_reset(self, cr, uid, ids, context=None):
+        # pdb.set_trace()
         return self.write(cr, uid, ids, {
             'state': 'draft'
         }, context=context)

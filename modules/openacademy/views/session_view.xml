@@ -9,20 +9,17 @@
             <field name="arch" type="xml">
                 <form string="Session" version="7.0">
                     <header>
-                        <button name="action_draft"
+                        <button name="reset"
                             string="Reset to Draft"
                             icon="gtk-cancel"
-                            type="object"
                             states="confirmed"/>
-                        <button name="action_confirm"
+                        <button name="confirm"
                             string="Confirm"
                             icon="gtk-ok"
-                            type="object"
                             states="draft"/>
-                        <button name="action_done"
+                        <button name="done"
                             string="Set to done"
                             icon="gtk-ok"
-                            type="object"
                             states="confirmed"/>
                         <field name="state" widget="statusbar"/>
                     </header>

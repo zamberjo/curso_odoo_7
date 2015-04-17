@@ -25,5 +25,6 @@ Módulo Open Academy para gestionar cursos
         'views/session_view.xml',
         'views/partner_view.xml',
         'wizards/subscription_wizard_view.xml',
+        'workflows/session_workflow.xml',
     ],
 }

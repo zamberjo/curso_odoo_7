@@ -33,5 +33,36 @@
             <field name="kind">function</field>
             <field name="action">action_done()</field>
         </record>
+
+        <!-- Definimos las transiciones -->
+        <record id="trans_draft_confirmed0" model="workflow.transition">
+            <field name="signal">confirm</field>
+            <field name="act_from" ref="draft_activity"/>
+            <field name="act_to" ref="confirmed_activity"/>
+            <field name="condition">True</field>
+        </record>
+        <record id="trans_draft_confirmed1" model="workflow.transition">
+            <field name="act_from" ref="draft_activity"/>
+            <field name="act_to" ref="confirmed_activity"/>
+            <field name="condition">instructor_id and taken_seats_pct &gt;= 50</field>
+        </record>
+        <record id="trans_confirmed_draft0" model="workflow.transition">
+            <field name="signal">reset</field>
+            <field name="act_from" ref="confirmed_activity"/>
+            <field name="act_to" ref="draft_activity"/>
+            <field name="condition">True</field>
+        </record>
+        <record id="trans_confirmed_done0" model="workflow.transition">
+            <field name="signal">done</field>
+            <field name="act_from" ref="confirmed_activity"/>
+            <field name="act_to" ref="done_activity"/>
+            <field name="condition">True</field>
+        </record>
+        <record id="trans_done_draft0" model="workflow.transition">
+            <field name="signal">reset</field>
+            <field name="act_from" ref="done_activity"/>
+            <field name="act_to" ref="draft_activity"/>
+            <field name="condition">True</field>
+        </record>
     </data>
 </openerp>

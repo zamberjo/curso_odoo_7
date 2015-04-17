@@ -155,7 +155,7 @@ class openacademy_session(orm.Model):
             'warning': warning,
         }
 
-    def action_draft(self, cr, uid, ids, context=None):
+    def action_reset(self, cr, uid, ids, context=None):
         return self.write(cr, uid, ids, {
             'state': 'draft'
         }, context=context)

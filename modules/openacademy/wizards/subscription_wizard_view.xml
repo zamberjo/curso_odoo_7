@@ -7,6 +7,15 @@
             <field name="arch" type="xml">
                 <form string="Subscribe Attendees" version="7.0">
                     <group>
+                        <!-- Permisos de visibilidad al manager
+                        <field
+                            name="course_id"
+                            groups="openacademy.openacademy_group_manager"
+                            on_change="onchange_course(course_id, context)"/>-->
+
+                        <p>
+                            Text to translate!
+                        </p>
                         <field
                             name="course_id"
                             on_change="onchange_course(course_id, context)"/>
@@ -37,7 +46,15 @@
             <field name="target">new</field>
         </record>
 
+        <!-- Dando permisos de acceso al grupo manager
         <menuitem id="menu_subscription" parent="openacademy.openacademy_menu_subscription"
-                name="Subscriptions" sequence="3" action="action_subscriptions"/>
+                name="Subscriptions"
+                sequence="3"
+                groups="openacademy.openacademy_group_manager"
+                action="action_subscriptions"/>-->
+        <menuitem id="menu_subscription0" parent="openacademy.openacademy_menu_subscription"
+                name="Subscriptions"
+                sequence="3"
+                action="action_subscriptions"/>
     </data>
 </openerp>

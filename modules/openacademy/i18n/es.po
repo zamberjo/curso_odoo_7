@@ -1,0 +1,340 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* openacademy
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-04-17 16:12+0000\n"
+"PO-Revision-Date: 2015-04-17 18:24+0100\n"
+"Last-Translator: Jose Zambudio Bernabeu <jose.zambudio@diagram.es>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+
+#. module: openacademy
+#: field:openacademy.session,taken_seats_pct:0
+msgid "Taken Seats"
+msgstr "Asientos ocupados"
+
+#. module: openacademy
+#: selection:openacademy.session,state:0
+msgid "Confirmed"
+msgstr "Confirmado"
+
+#. module: openacademy
+#: model:ir.actions.act_window,help:openacademy.action_instructors
+#: model:ir.actions.act_window,help:openacademy.action_sessions
+msgid ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                    Click to define a new session.\n"
+"                </p>\n"
+"            "
+msgstr ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                    Click to define a new session.\n"
+"                </p>\n"
+"            "
+
+#. module: openacademy
+#: field:openacademy.course,responsible_phone:0
+msgid "Responsible Phone"
+msgstr "Teléfono del responsable"
+
+#. module: openacademy
+#: help:openacademy.session,duration:0
+msgid "Duration in days"
+msgstr "Duration in days"
+
+#. module: openacademy
+#: view:openacademy.session:0
+msgid "Confirm"
+msgstr "Confirm"
+
+#. module: openacademy
+#: model:ir.ui.menu,name:openacademy.openacademy_menu_personal
+msgid "Personal"
+msgstr "Personal"
+
+#. module: openacademy
+#: model:ir.ui.menu,name:openacademy.openacademy_menu_folder
+#: model:ir.ui.menu,name:openacademy.openacademy_menu_root
+msgid "Open Academy"
+msgstr "Open Academy"
+
+#. module: openacademy
+#: field:openacademy.course,responsible_id:0
+msgid "Responsible"
+msgstr "Responsible"
+
+#. module: openacademy
+#: view:openacademy.subscription_wizard:0
+msgid "Subscribe"
+msgstr "Subscribe"
+
+#. module: openacademy
+#: field:openacademy.session,state:0
+msgid "State"
+msgstr "State"
+
+#. module: openacademy
+#: selection:openacademy.session,state:0
+msgid "Draft"
+msgstr "Draft"
+
+#. module: openacademy
+#: view:openacademy.session:0
+msgid "Set to done"
+msgstr "Set to done"
+
+#. module: openacademy
+#: code:addons/openacademy/session.py:148
+#, python-format
+msgid "The number of seats should not be negative!"
+msgstr "The number of seats should not be negative!"
+
+#. module: openacademy
+#: field:openacademy.course,name:0
+#: field:openacademy.session,name:0
+msgid "Title"
+msgstr "Title"
+
+#. module: openacademy
+#: view:openacademy.session:0
+#: field:openacademy.session,attendee_ids:0
+#: field:openacademy.subscription_wizard,attendee_ids:0
+msgid "Attendees"
+msgstr "Attendees"
+
+#. module: openacademy
+#: model:ir.model,name:openacademy.model_openacademy_attendee
+msgid "Attendee"
+msgstr "Attendee"
+
+#. module: openacademy
+#: field:openacademy.course,description:0
+msgid "Description"
+msgstr "Description"
+
+#. module: openacademy
+#: view:openacademy.session:0
+msgid "Schedule"
+msgstr "Schedule"
+
+#. module: openacademy
+#: field:openacademy.attendee_wizard,subscription_id:0
+msgid "unknown"
+msgstr "unknown"
+
+#. module: openacademy
+#: model:ir.ui.menu,name:openacademy.menu_instructors
+msgid "Instructors"
+msgstr "Instructors"
+
+#. module: openacademy
+#: view:openacademy.subscription_wizard:0
+msgid "Cancel"
+msgstr "Cancel"
+
+#. module: openacademy
+#: model:ir.model,name:openacademy.model_openacademy_session
+#: field:openacademy.attendee,session_id:0
+#: view:openacademy.session:0
+msgid "Session"
+msgstr "Session"
+
+#. module: openacademy
+#: model:res.groups,name:openacademy.openacademy_group_user
+msgid "User"
+msgstr "User"
+
+#. module: openacademy
+#: field:openacademy.course,active:0
+#: field:openacademy.session,active:0
+msgid "Active"
+msgstr "Active"
+
+#. module: openacademy
+#: model:ir.actions.act_window,name:openacademy.action_instructors
+#: field:openacademy.session,instructor_id:0
+msgid "Instructor"
+msgstr "Instructor"
+
+#. module: openacademy
+#: model:ir.actions.act_window,help:openacademy.action_courses
+msgid ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                    Click to define a new course.\n"
+"                </p>\n"
+"            "
+msgstr ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                    Click to define a new course.\n"
+"                </p>\n"
+"            "
+
+#. module: openacademy
+#: help:openacademy.course,image:0
+msgid "This field holds the image used as image for the product, limited to 1024x1024px."
+msgstr "This field holds the image used as image for the product, limited to 1024x1024px."
+
+#. module: openacademy
+#: field:res.partner,is_instructor:0
+msgid "Is intructor"
+msgstr "Is intructor"
+
+#. module: openacademy
+#: model:ir.model,name:openacademy.model_openacademy_attendee_wizard
+msgid "openacademy.attendee_wizard"
+msgstr "openacademy.attendee_wizard"
+
+#. module: openacademy
+#: model:ir.actions.act_window,name:openacademy.action_subscriptions
+#: view:openacademy.subscription_wizard:0
+msgid "Subscribe Attendees"
+msgstr "Subscribe Attendees"
+
+#. module: openacademy
+#: code:addons/openacademy/session.py:147
+#, python-format
+msgid "Error!"
+msgstr "Error!"
+
+#. module: openacademy
+#: model:ir.model,name:openacademy.model_openacademy_subscription_wizard
+msgid "openacademy.subscription_wizard"
+msgstr "openacademy.subscription_wizard"
+
+#. module: openacademy
+#: sql_constraint:openacademy.course:0
+msgid "Course titles must be unique!"
+msgstr "Course titles must be unique!"
+
+#. module: openacademy
+#: constraint:openacademy.course:0
+msgid "Course title and description must be different"
+msgstr "Course title and description must be different"
+
+#. module: openacademy
+#: model:ir.ui.menu,name:openacademy.menu_subscription0
+#: model:ir.ui.menu,name:openacademy.openacademy_menu_subscription
+msgid "Subscriptions"
+msgstr "Subscriptions"
+
+#. module: openacademy
+#: field:openacademy.session,date_end:0
+msgid "End date"
+msgstr "End date"
+
+#. module: openacademy
+#: field:openacademy.session,seats:0
+msgid "Number of Seats"
+msgstr "Number of Seats"
+
+#. module: openacademy
+#: model:ir.actions.act_window,name:openacademy.action_courses
+#: model:ir.ui.menu,name:openacademy.menu_courses
+#: view:openacademy.course:0
+msgid "Courses"
+msgstr "Courses"
+
+#. module: openacademy
+#: model:ir.module.category,name:openacademy.openacademy_category
+msgid "OpenAcedemy"
+msgstr "OpenAcedemy"
+
+#. module: openacademy
+#: field:openacademy.course,image:0
+#: field:openacademy.course,image_medium:0
+#: field:openacademy.course,image_small:0
+msgid "Image"
+msgstr "Image"
+
+#. module: openacademy
+#: model:ir.actions.act_window,name:openacademy.action_sessions
+#: model:ir.ui.menu,name:openacademy.menu_sessions
+#: field:openacademy.course,session_ids:0
+#: view:openacademy.session:0
+#: field:openacademy.subscription_wizard,session_ids:0
+msgid "Sessions"
+msgstr "Sessions"
+
+#. module: openacademy
+#: view:openacademy.session:0
+msgid "General"
+msgstr "General"
+
+#. module: openacademy
+#: help:openacademy.course,image_medium:0
+msgid "This field holds...128x128px"
+msgstr "This field holds...128x128px"
+
+#. module: openacademy
+#: model:ir.model,name:openacademy.model_openacademy_course
+#: view:openacademy.course:0
+#: field:openacademy.session,course_id:0
+#: field:openacademy.subscription_wizard,course_id:0
+msgid "Course"
+msgstr "Course"
+
+#. module: openacademy
+#: model:res.groups,name:openacademy.openacademy_group_manager
+msgid "Manager"
+msgstr "Responsable"
+
+#. module: openacademy
+#: view:openacademy.session:0
+msgid "Reset to Draft"
+msgstr "Reset to Draft"
+
+#. module: openacademy
+#: selection:openacademy.session,state:0
+msgid "Done"
+msgstr "Done"
+
+#. module: openacademy
+#: help:openacademy.course,image_small:0
+msgid "This field holds...64x64px"
+msgstr "This field holds...64x64px"
+
+#. module: openacademy
+#: help:openacademy.session,taken_seats_pct:0
+msgid "Percentage of taken seats"
+msgstr "Percentage of taken seats"
+
+#. module: openacademy
+#: field:openacademy.session,duration:0
+msgid "Duration"
+msgstr "Duración"
+
+#. module: openacademy
+#: model:ir.model,name:openacademy.model_openacademy_instructor
+#: model:ir.model,name:openacademy.model_res_partner
+#: field:openacademy.attendee,partner_id:0
+#: field:openacademy.attendee_wizard,partner_id:0
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: openacademy
+#: field:openacademy.session,date_start:0
+msgid "Start Date"
+msgstr "Fecha inicio"
+
+#. module: openacademy
+#: view:openacademy.subscription_wizard:0
+msgid "or"
+msgstr "o"
+
+#. module: openacademy
+#: field:openacademy.course,responsible_email:0
+msgid "Responsible Email"
+msgstr "Email del responsable"
+
+#. module: base
+#: view:res.groups:0
+msgid "Inherited"
+msgstr "Heredado"
+

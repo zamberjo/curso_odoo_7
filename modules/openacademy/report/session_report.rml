@@ -7,13 +7,14 @@
     </template>
 
     <stylesheet>
+        <paraStyle name="heading" fontName="Helvetica-Bold" fontSize="24" leading="26" spaceBefore="0.0" spaceAfter="0.0"/>
     </stylesheet>
 
     <story>
         <para>[[ repeatIn(objects, 'session') ]]</para>
         <para>[[ setLang(session.course_id.responsible_id.context_lang) ]]</para>
 
-        <para>Name: [[ session.name ]]</para>
+        <para style="heading">Name: [[ session.name ]]</para>
         <para>Date: [[ formatLang(session.date_start, date=True) ]]</para>
         <para>Duration: [[ formatLang(session.duration, digits=2) ]]</para>
         <para>Responsible: [[ session.instructor_id.name ]]</para>

@@ -6,8 +6,9 @@
     </head>
     <body>
         % for session in objects:
-        <h1>${session.name|entity}</h1>
-        <h2>Course: ${session.course_id.name|entity}</h2>
+            <% setLang(session.course_id.responsible_id.lang) %>
+            <h1>${session.name|entity}</h1>
+            <h2>Course: ${session.course_id.name|entity}</h2>
         % endfor
     </body>
 </html>

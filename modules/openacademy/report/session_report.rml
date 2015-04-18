@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<document filename="Session.pdf">
+    <template pageSize="(612.0, 792.0)" title="Session"  author="Jose Zambudio Bernabeu" allowSplitting="20">
+        <pageTemplate id="first">
+            <frame id="first" x1="57.0" y1="57.0" width="498" height="678"/>
+        </pageTemplate>
+    </template>
+
+    <stylesheet>
+    </stylesheet>
+
+    <story>
+        <para>[[ repeatIn(objects, 'session') ]]</para>
+        <para>[[ setLang(session.course_id.responsible_id.context_lang) ]]</para>
+
+        <para>Name: [[ session.name ]]</para>
+        <para>Date: [[ formatLang(session.date_start, date=True) ]]</para>
+        <para>Duration: [[ formatLang(session.duration, digits=2) ]]</para>
+        <para>Responsible: [[ session.instructor_id.name ]]</para>
+
+        <section>
+            <para>[[ repeatIn(session.attendee_ids, 'attendee') ]]</para>
+            <para>Name: [[ attendee.partner_id.name ]]</para>
+        </section>
+    </story>
+
+
+</document>

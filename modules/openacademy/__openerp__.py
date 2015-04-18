@@ -16,7 +16,7 @@ Módulo Open Academy para gestionar cursos
 - Sesiones
 - Registro de asistentes
     """,
-    'depends': ['base'],
+    'depends': ['base', 'report_webkit'],
     'data': [
         'security/openacademy_security.xml',
         'security/ir.model.access.csv',
@@ -26,5 +26,6 @@ Módulo Open Academy para gestionar cursos
         'views/partner_view.xml',
         'wizards/subscription_wizard_view.xml',
         'workflows/session_workflow.xml',
+        'report/session_report.xml',
     ],
 }

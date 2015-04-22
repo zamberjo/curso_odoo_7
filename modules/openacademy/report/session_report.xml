@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <report id="rml_session_report"
+            string="RML session report"
+            model="openacademy.session"
+            name="rml.session.report"
+            rml="openacademy/report/session_report.rml"/>
+
+
+        <!--file="report_webkit_sample/report/report_webkit_html.mako"-->
+        <report string="Webkit session report"
+            id="webkit_session_report"
+            model="openacademy.session"
+            name="webkit.session.report"
+            report_type="webkit"
+            file="openacademy/report/session_report.mako"
+            webkit_header="report_webkit.ir_header_webkit_basesample0"
+            auto="False"/>
+    </data>
+</openerp>

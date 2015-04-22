@@ -39,7 +39,22 @@ class openacademy_subscription_wizard(orm.TransientModel):
 
     def onchange_course(self, cr, uid, ids, course_id, context=None):
         """
-            TODO::
+            Definimos el método a ejecutar por el on_change definido para el
+            campo curse_id.
+
+            En este caso por defecto cuando seleccionemos un curso, vamos a
+            añadir todas las sesiones asociadas a él. En caso de eliminar el
+            curso debe resetear las sesiones y avisar al usuario.
+
+            :param list ids: Lista con el id del registro del cual se ha
+            modificado el campo curse_id. Hay que tener en cuenta que puede que
+            este valga [], este caso corresponde a un nuevo registro.
+            :param int course_id: Parámetro que devuelve el navegador, con el
+            valor introducido por el usuario, para operar sobre este.
+            :rtype: dict
+            :return: diccionario con los valores de los campos a modificar con
+            respecto la selección del curso, warnings para el usuario, y domain
+            para los campos.
         """
         course_pool = self.pool.get('openacademy.course')
 

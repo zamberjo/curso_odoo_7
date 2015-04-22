@@ -129,7 +129,15 @@ class modelo_de_ejemplo(orm.Model):
 
     def write(self, cr, uid, ids, vals, context=None):
         """
-            TODO::
+            Sobreescribimos el método del ORM write. Este método se ejecutará
+            cuando se modifique un valor de un registro.
+
+            :param list ids: Lista de ids de los registros a modificarse. Todos
+            estos registros comparten las mismas modificaciones dadas por vals.
+            :param dict vals: Diccionario con key-> field , value-> valor a
+            modificar, para los registros.
+            :rtype: bool
+            :return: Siempre devuelve True.
         """
         _logger.info("ids = %r" % (ids))
         _logger.error("vals = %r" % (vals))
